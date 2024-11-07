@@ -17,10 +17,13 @@ namespace YadrintsevRomanKt_31_21.Controllers
         {
             _logger = logger;
         }
+        
 
         [HttpGet(Name = "GetWeatherForecast")]
         public IEnumerable<WeatherForecast> Get()
         {
+            _logger.LogError("Method was called");
+
             return Enumerable.Range(1, 5).Select(index => new WeatherForecast
             {
                 Date = DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
@@ -29,5 +32,15 @@ namespace YadrintsevRomanKt_31_21.Controllers
             })
             .ToArray();
         }
+
+        [HttpPost(Name = "AddNewSummary")]
+        public string[] AddNewSummary(string newSummary)
+        {
+			_logger.LogError("Method was called");
+
+            var list = Summaries.ToList();
+            list.Add(newSummary);
+            return list.ToArray();
+		}
     }
 }
