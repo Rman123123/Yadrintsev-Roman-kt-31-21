@@ -1,0 +1,6 @@
+@YadrintsevRomanKt_31_21_HostAddress = http://localhost:5188
+
+GET {{YadrintsevRomanKt_31_21_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
