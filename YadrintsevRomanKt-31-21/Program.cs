@@ -1,5 +1,8 @@
 using NLog;
 using NLog.Web;
+using Microsoft.EntityFrameworkCore;
+using YadrintsevRomanKt_31_21.Database;
+using System;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -16,6 +19,10 @@ try
 	builder.Services.AddEndpointsApiExplorer();
 	builder.Services.AddSwaggerGen();
 
+	builder.Services.AddDbContext<TeacherDbContext>(options =>
+	{
+		options.UseSqlServer(builder.Configuration.GetConnectionString("ConnString"));
+	});
 
 	var app = builder.Build();
 
