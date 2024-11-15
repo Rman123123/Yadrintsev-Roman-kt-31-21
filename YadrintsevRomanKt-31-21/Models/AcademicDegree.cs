@@ -2,7 +2,7 @@
 
 namespace YadrintsevRomanKt_31_21.Models
 {
-	public enum AcademicDegreeType
+	public enum AcademicDegreeTypes
 	{
 		[Display(Name = "Кандидат наук")]
 		ScienceCandidate,
@@ -14,6 +14,6 @@ namespace YadrintsevRomanKt_31_21.Models
 	public class AcademicDegree
 	{
 		public int AcademicDegreeId { get; set; }
-		public AcademicDegreeType AcademicDegreeName { get; set; }
+		public AcademicDegreeTypes AcademicDegreeName { get; set; }
 	}
 }

@@ -34,8 +34,7 @@ namespace YadrintsevRomanKt_31_21.Database.Configurations
 			builder.HasOne(p => p.Teacher)
 				.WithMany()
 				.HasForeignKey(p => p.TeacherId)
-				.HasConstraintName("fk_teacher_id")
-				.OnDelete(DeleteBehavior.Cascade);
+				.HasConstraintName("fk_teacher_id");
 
 			builder.HasIndex(p => p.TeacherId, $"idx_{TableName}_fk_teacher_id");
 

@@ -25,25 +25,22 @@ namespace YadrintsevRomanKt_31_21.Database.Configurations
 				.HasColumnName("c_department_name")
 				.HasColumnType(ColumnType.String).HasMaxLength(100)
 				.HasComment("Название кафедры");
-
+           
 			builder.Property(d => d.HeadID)
-				.HasColumnName("head_id")
-				.IsRequired(false)
-				.HasComment("Идентификатор руководителя кафедры");
+                .HasColumnName("head_id")
+                .IsRequired(false)
+                .HasComment("Идентификатор руководителя кафедры");
 
-			builder.HasOne(d => d.Head)
-				.WithMany() 
-				.HasForeignKey(d => d.HeadID)
-				.HasConstraintName($"fk_{TableName}_head_id")
-				.OnDelete(DeleteBehavior.Restrict);
+            builder.HasOne(d => d.Teacher)
+                .WithMany()
+                .HasForeignKey(d => d.HeadID)
+                .HasConstraintName($"fk_{TableName}_head_id")
+                .OnDelete(DeleteBehavior.Restrict);
 
-			builder.HasIndex(d => d.HeadID)
-				.HasDatabaseName($"idx_{TableName}_fk_head_id");
+            builder.HasIndex(d => d.HeadID)
+                .HasDatabaseName($"idx_{TableName}_fk_head_id");
 
-			builder.Navigation(d => d.Head)
-				.AutoInclude();
-
-			builder.ToTable(TableName);
+            builder.ToTable(TableName);
 		}
 	}
 }

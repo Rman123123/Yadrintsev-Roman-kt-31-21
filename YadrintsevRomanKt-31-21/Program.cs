@@ -2,7 +2,7 @@ using NLog;
 using NLog.Web;
 using Microsoft.EntityFrameworkCore;
 using YadrintsevRomanKt_31_21.Database;
-using System;
+using YadrintsevRomanKt_31_21.ServiceExtensions;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -19,12 +19,12 @@ try
 	builder.Services.AddEndpointsApiExplorer();
 	builder.Services.AddSwaggerGen();
 
-	builder.Services.AddDbContext<TeacherDbContext>(options =>
-	{
-		options.UseSqlServer(builder.Configuration.GetConnectionString("ConnString"));
-	});
+    builder.Services.AddDbContext<TeacherDbContext>(options =>
+       options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
 
-	var app = builder.Build();
+    builder.Services.AddServices();
+
+    var app = builder.Build();
 
 	// Configure the HTTP request pipeline.
 	if (app.Environment.IsDevelopment())
