@@ -25,8 +25,8 @@ namespace YadrintsevRomanKt_31_21.Database
 
             // Задание данных для степеней
             modelBuilder.Entity<AcademicDegree>().HasData(
-                new AcademicDegree { AcademicDegreeId = 1, AcademicDegreeName = AcademicDegreeTypes.ScienceCandidate },
-                new AcademicDegree { AcademicDegreeId = 2, AcademicDegreeName = AcademicDegreeTypes.ScienceDoctor }
+                new AcademicDegree { AcademicDegreeId = 1, AcademicDegreeName = AcademicDegree.AcademicDegreeTypes.ScienceCandidate },
+                new AcademicDegree { AcademicDegreeId = 2, AcademicDegreeName = AcademicDegree.AcademicDegreeTypes.ScienceDoctor }
             );
             // Задание данных для дисциплин
             modelBuilder.Entity<Discipline>().HasData(

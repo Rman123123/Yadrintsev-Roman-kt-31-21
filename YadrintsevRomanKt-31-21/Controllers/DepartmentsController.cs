@@ -48,7 +48,7 @@ namespace YadrintsevRomanKt_31_21.Controllers
         }
 
         [HttpPut("UpdateDepartment/{departmentId}")]
-        public async Task<IActionResult> UpdateDepartmentAsync(int departmentId, string newDepartmentName, CancellationToken cancellationToken = default)
+        public async Task<IActionResult> UpdateDepartmentAsync([FromRoute]int departmentId, [FromBody]string newDepartmentName, CancellationToken cancellationToken = default)
         {
             try
             {
